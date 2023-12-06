@@ -1,0 +1,26 @@
+.red{
+    color: red;
+    background-color: black;
+}
+.flex{
+    display: flex;
+}
+.center{
+
+ justify-content: center;
+ align-items: center;
+}
+.vph{
+    height: 100vh;
+}
+.footer{
+
+    margin-top: auto;
+}
+.rows{
+    flex-direction: row;
+
+}
+.column{
+    flex-direction: column;
+}
