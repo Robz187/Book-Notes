@@ -24,3 +24,20 @@
 .column{
     flex-direction: column;
 }
+.block
+{
+    display:block;
+}
+.float-right{
+    float:right;
+}
+.login{
+    list-style: none;
+}
+.float-left{
+    float: left;
+}
+.book{
+    height: 187px;
+    width: 120px;
+}

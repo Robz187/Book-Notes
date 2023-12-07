@@ -16,7 +16,7 @@ CREATE TABLE review(
 name text NOT NULL,
 	review text NOT NULL,
 	datum date ,
-	ISBN INT PRIMARY KEY,
+	ISBN BIGINT PRIMARY KEY,
 	rating  integer
 );
 CREATE TABLE login(

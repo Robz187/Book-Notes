@@ -1,8 +1,14 @@
 
 <%- include('partials/header.ejs') %>
-
-
-<div class="red block"><P></P> How to center a div</div>
-
+<% if (locals.admin = true){%>
+<form method="post"><button type="submit" formaction="/edit">Create a new Post</button></form>
+<%  } %>
+<% reviews.forEach(data => { %>
+    <img class="book" src="https://covers.openlibrary.org/b/isbn/<%=data.isbn%>.jpg">
+    <p>Title: <%= data.name%></p>
+    <p>Rating: <%= data.rating%>/10</p>
+    <p>Date: <%=data.datum%></p>
+    <p><%=data.review%></p>
+<%}); %>
 
 <%- include('partials/footer.ejs') %>
