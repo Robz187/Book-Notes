@@ -11,38 +11,37 @@
 </head>
 
 <body class="vph flex column">
-
-<div class="flex center rows"> 
-    <form method="get" class="grid-post" action="/edit">
+    <% if (locals.error) { %> <h1><%=error%></h1> <%}%>
+    <% reviews.forEach(data => { %>
+<div class="flex center rows">
+    <form class="grid-post"  method="get" action="/update">
         <div class="grid-name">
-            <label class="header padding" >Title:</label>
-            <textarea  type="text" name="name" id="name" placeholder="Title"></textarea>
-    
+            <label class="header" >Title:</label>
+            <textarea type="text" name="name" id="name" placeholder="Title"><%= data.name %></textarea>
         </div>
         <div class="grid-rating">
-            <label class="header padding" >Rating:</label>
-            <input  type="number " name="rating" id="rating" placeholder="Rating">
+            <label class="header" >Rating:</label>
+            <input type="number" name="rating" value="<%= data.rating  %>" id="rating" placeholder="Rating">
         </div>
         <div class="grid-isbn">
-            <label class="header padding">ISBN-Number:</label>
-            <input  type="number" name="isbn" id="isbn" placeholder="ISBN-Number">
+            <label class="header" >ISBN-Number:</label>
+            <input type="number" name="isbn" value="<%= data.isbn  %>" id="isbn" placeholder="ISBN-Number">
         </div>
         <div class="grid-review">
-            <label class="header padding" >Review:</label>
-            <textarea class="review-feld"  type="text" name="review" placeholder="Review"></textarea>
+            <label class="header" >Review:</label>
+            <textarea type="text" class="review-feld" name="review"  placeholder="Review"><%= data.review %></textarea>
         </div>
-
         <%const date = new Date();%>
         <input type="hidden" name="monat" id="datum" value="<%= date.getMonth() + 1;%>">
         <input type="hidden" name="jahr" id="datum" value="<%= date.getFullYear();%>"> 
         <input type="hidden" name="tag" id="datum" value="<%= date.getDate(); %>">    
-        <button class="btn grid-button" type="submit">Post Review</button>
-    </form>
+        <button class="btn grid-button" type="submit">Post Update</button>
 
+</form>
+
+
+<%}); %>
 </div>
-
-
-
 
 
     <%- include('partials/footer.ejs') %>

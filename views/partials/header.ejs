@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Noto+Serif:wght@100&family=Playfair+Display&display=swap" rel="stylesheet">
     <title>My Book Reviews</title>
 </head>
 
-<body class="vph flex column">
+<body class="vph">
     
     <div class="block float-right ">
+    <%if (admin === false){%>
         <ul class="login">
-            <lI><form action="get"><button type="submit" formaction="/login">Login</button></form></lI>
+            <lI><form action="get"><button class="btn loginbtn" type="submit" formaction="/login">Login</button></form></lI>
         </ul>
+    <%}%>    
     </div>
     <diV class="flex column center">
         <div>
-            <h1>Welcome to my Book Review Page</h1>
+            <h1 class="header bold">Welcome to my Book Review Page</h1>
                 <p>Feel free to Scroll down and just choose any Title and the Review page will show my Blog post about the title.</p>    
     
         </div>

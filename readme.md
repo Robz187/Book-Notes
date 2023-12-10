@@ -15,7 +15,7 @@ Create a Database called "World"
 CREATE TABLE review(
 name text NOT NULL,
 	review text NOT NULL,
-	datum date ,
+	datum text ,
 	ISBN BIGINT PRIMARY KEY,
 	rating  integer
 );
@@ -24,3 +24,11 @@ CREATE TABLE login(
 	password text NOT NULL,
 	admin boolean
 );
+# The INSERT INTO are optional to give you a general look how the Website would look like and how to Login you could also just use ur own Data for the database
+
+INSERT INTO login (username,password,admin)
+VALUES ('Admin','admin',TRUE);
+INSERT INTO review(review,datum,ISBN,rating)
+VALUES ('Title: Band 1 - "Dragon Ball: The Monkey King"','2023-12-9','9781569319307',7 );
+
+

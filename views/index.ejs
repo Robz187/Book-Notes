@@ -1,14 +1,24 @@
 
 <%- include('partials/header.ejs') %>
-<% if (locals.admin = true){%>
-<form method="post"><button type="submit" formaction="/edit">Create a new Post</button></form>
+<%if (locals.error){prompt("Error could not handle Edit check console")}%>
+<% if (locals.admin ===true){%>
+<form method="post"><button class="float-right btn" type="submit" formaction="/edit">Create a new Post</button></form>
 <%  } %>
+<div class="container-items flex center column">
 <% reviews.forEach(data => { %>
-    <img class="book" src="https://covers.openlibrary.org/b/isbn/<%=data.isbn%>.jpg">
-    <p>Title: <%= data.name%></p>
-    <p>Rating: <%= data.rating%>/10</p>
-    <p>Date: <%=data.datum%></p>
-    <p><%=data.review%></p>
+<div class="grid">
+    <img class="book flex" src="https://covers.openlibrary.org/b/isbn/<%=data.isbn%>.jpg">
+    <p class="title flex header bold">Title: <%= data.name%></p>
+    <p class="rating flex header bold">Rating: <%= data.rating%>/10</p>
+    <p class="datum flex header bold">Date: <%=data.datum%></p>
+    <p class="review flex"><%=data.review%></p>
+<% if (locals.admin === true) {%>    
+    <form method="POST"> 
+    <Button formaction="/update" name="isbn" value="<%= data.isbn%>" class="btn">Edit</Button>    
+    <Button formaction="/delete" name="isbn" value="<%= data.isbn%>" class="btn">Delete</Button> 
+    </form>
+<%}%>    
+</div>
 <%}); %>
-
+</div>
 <%- include('partials/footer.ejs') %>
